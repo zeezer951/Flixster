@@ -3,6 +3,8 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.example.flixster">
 
+    <uses-permission android:name = "permission.INTERNET"/>
+
     <dist:module dist:instant="true" />
 
     <application
