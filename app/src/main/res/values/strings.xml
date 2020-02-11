@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Flixster</string>
+    <string name="marcus_and_mike_are_forced_to_confront_new_threats_career_changes_and_midlife_crises_as_they_join_the_newly_created_elite_team_ammo_of_the_miami_police_department_to_take_down_the_ruthless_armando_armas_the_vicious_leader_of_a_miami_drug_cartel">Marcus and Mike are forced to confront new threats, career changes, and midlife crises as they join the newly created elite team AMMO of the Miami police department to take down the ruthless Armando Armas, the vicious leader of a Miami drug cartel.</string>
+    <string name="textview">TextView</string>
+    <string name="poster">Poster</string>
 </resources>

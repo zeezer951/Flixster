@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/Fast and the Furious Presents"
+        android:id="@+id/container"
         android:layout_width="396dp"
         android:layout_height="834dp"
         android:text="!"

@@ -1,8 +1,7 @@
 package com.example.flixster;
+import com.example.flixster.adapters.movieAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-
 
 import android.os.Bundle;
 import android.util.Log;
@@ -32,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        new movieAdapter(this, movies);
+
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
             @Override
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONArray results = jsonObject.getJSONArray("results");
                     Log.i(TAG, "Results" + results.toString());
                     movies = Movie.fromJSONArray(results);
+                    //movieAdapter.notifyDataSetChanged();
                     Log.i(TAG, "Results" + movies.size());
                 } catch (JSONException e) {
                     Log.e(TAG, "Hit json exception", e);
