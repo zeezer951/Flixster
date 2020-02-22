@@ -1,6 +1,8 @@
 package com.example.flixster.models;
 
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,11 +16,12 @@ public class Movie {
     String posterPath;
     String title;
     String overview;
-
+    String BackDropPath;
+    String basePath = "https://image.tmdb.org/t/p/w342";
 
     public Movie(JSONObject jsonObject) throws JSONException {
 
-        posterPath = jsonObject.getString("poster_Path");
+        posterPath = jsonObject.getString("poster_path");
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
     }
@@ -27,7 +30,7 @@ public class Movie {
         List<Movie> movies = new ArrayList<>();
         for (int i = 0; i < movieJsonArray.length(); i++) {
             movies.add(new Movie(movieJsonArray.getJSONObject(i)));
-
+            Log.d("movies", "Added movie"+ movies.get(i).title);
         }
         return movies;
 
@@ -35,7 +38,7 @@ public class Movie {
         public String getPosterPath()
         {
 
-            return String.format("/y95lQLnuNKdPAzw9F9Ab8kJ80c3.jpg", posterPath);
+            return basePath+posterPath;
         }
 
         public String getTitle ()
@@ -50,6 +53,11 @@ public class Movie {
             return overview;
         }
 
+
+        public String getBackDropPath()
+        {
+            return BackDropPath;
+        }
 
     }
 

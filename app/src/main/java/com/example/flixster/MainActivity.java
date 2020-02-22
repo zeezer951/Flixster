@@ -2,6 +2,8 @@ package com.example.flixster;
 import com.example.flixster.adapters.movieAdapter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Headers;
@@ -26,12 +29,20 @@ public class MainActivity extends AppCompatActivity {
 
     List<Movie> movies;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        movies = new ArrayList<>();
 
-        new movieAdapter(this, movies);
+        final movieAdapter MovieApt= new movieAdapter(this, movies);
+
+        RecyclerView rvMovies = findViewById(R.id.rvMovies);
+        rvMovies.setAdapter(MovieApt);
+        rvMovies.setLayoutManager(new LinearLayoutManager(this));
+
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
@@ -42,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     JSONArray results = jsonObject.getJSONArray("results");
                     Log.i(TAG, "Results" + results.toString());
-                    movies = Movie.fromJSONArray(results);
-                    //movieAdapter.notifyDataSetChanged();
+                    movies.addAll(Movie.fromJSONArray(results));
+                    MovieApt.notifyDataSetChanged();
                     Log.i(TAG, "Results" + movies.size());
                 } catch (JSONException e) {
                     Log.e(TAG, "Hit json exception", e);

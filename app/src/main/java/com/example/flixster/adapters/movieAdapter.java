@@ -52,7 +52,6 @@ import java.util.List;
 
         public class ViewHolder extends RecyclerView.ViewHolder {
 
-            public Object bind;
             TextView tvTitle;
             TextView tvOverView;
             ImageView ivPoster;
@@ -66,20 +65,20 @@ import java.util.List;
                 ivPoster = itemView.findViewById(R.id.ivPoster);
             }
 
-            public void bind(Movie movie)
+            public void bind(final Movie movie)
             {
             tvTitle.setText(movie.getTitle());
             tvOverView.setText(movie.getOverView());
             String imageURL;
 
-            if (context.getResources().getConfiguration().orientation = Configuration.ORIENTATION_LANDSCAPE){
+            if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
 
-                imageURL = movie.getBackdropPath();
+                imageURL = movie.getBackDropPath();
             } else{
 
                 imageURL = movie.getPosterPath();
             }
-            Glide.with(context).load(movie.getPosterPath()).into(ivPoster);
+            Glide.with(context).load(imageURL).into(ivPoster);
             tvTitle.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -87,7 +86,7 @@ import java.util.List;
 
 
                 }
-            })
+            });
 
 
              }

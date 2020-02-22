@@ -2,40 +2,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Fast and the Furious Presents"
+    android:id="@+id/rvView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/ivPoster"
         android:layout_width="163dp"
-        android:layout_height="160dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_marginStart="1dp"
-        android:layout_marginEnd="247dp"
         android:contentDescription="@string/poster"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvOverview"
-        android:layout_width="236dp"
-        android:layout_height="100dp"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTitle"
+        android:layout_alignStart="@+id/tvTitle"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="2dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginBottom="576dp"
         android:text="@string/marcus_and_mike_are_forced_to_confront_new_threats_career_changes_and_midlife_crises_as_they_join_the_newly_created_elite_team_ammo_of_the_miami_police_department_to_take_down_the_ruthless_armando_armas_the_vicious_leader_of_a_miami_drug_cartel"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
-        android:id="@+id/textView2"
-        android:layout_width="241dp"
-        android:layout_height="53dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="5dp"
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_toEndOf="@+id/ivPoster"
         android:text="@string/textview"
         tools:text='"BAD BOYS FOR LIFE"' />
 
